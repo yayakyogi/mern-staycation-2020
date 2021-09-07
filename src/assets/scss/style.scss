@@ -42,23 +42,12 @@
 @import "spinners";
 @import "utilities";
 @import "print";
-// import fonts
-@font-face {
-  font-family: "Poppins-Medium";
-  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins-Regular";
-  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
-}
-// declaration variabel fonts
-$font-medium: "Poppins-Medium";
-$font-regular: "Poppins-Regular";
 
 // styling brand text icon
 .brand-text-icon {
   font-size: 26px;
-  font-family: $font-medium;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   color: $primary;
   // dan jika dihover hilangkan beberapa style
   &:hover {
@@ -72,6 +61,7 @@ header {
   border-bottom: 1px solid $gray-200;
   width: 100%;
   position: relative;
+  margin-bottom: 40px;
 
   // styling navbar
   .navbar {
@@ -95,7 +85,8 @@ header {
             color: $gray-900;
             padding-left: 1rem;
             padding-right: 1rem;
-            font-family: $font-regular;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
             // jika anchor tagnya di hover akan punya text-decoration:underline
             &:hover {
               text-decoration: underline;
