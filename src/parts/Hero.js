@@ -13,7 +13,7 @@ export default function Hero(props) {
   // buat function untuk mengarahkan agar tombol ketika selesai di klik mengarah ke bagian yg dituju
   function showMostPicked() {
     window.scrollTo({
-      top: (props.refMostPicked.current.offsetTop = 30), // perintah agar content memiliki jarak 30 pixel dari atas
+      top: props.refMostPicked.current.offsetTop - 30, // perintah agar content memiliki jarak 30 pixel dari atas
       behavior: "smooth", // perintah agar scroll menjadi smooth
     });
   }
