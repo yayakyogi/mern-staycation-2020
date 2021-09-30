@@ -18,7 +18,11 @@ export default function Hero(props) {
     });
   }
   return (
-    <section className="container pt-4">
+    <section
+      className="container pt-4"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="row align-items-center">
         {/* colum left */}
         <div className="col-auto pr-3" style={{ width: 530, height: 500 }}>

@@ -9,7 +9,11 @@ export default function Header(props) {
   };
 
   return (
-    <header className="spacing-sm">
+    <header
+      className="spacing-sm"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+    >
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />

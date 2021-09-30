@@ -6,7 +6,7 @@ import TestimoniAccent from "../assets/images/img-frame-testimonial.png";
 
 export default function Testimoni({ data }) {
   return (
-    <section className="container">
+    <section className="container" data-aos="fade-up" data-aos-duration="500">
       <div className="row align-items-center">
         <div className="col-auto" style={{ marginRight: 60 }}>
           <div className="testimonial-hero" style={{ margin: `30px 0 0 30px` }}>

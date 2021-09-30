@@ -4,7 +4,12 @@ import Button from "../elements/Button";
 export default function Categories({ data }) {
   return data.map((category, index1) => {
     return (
-      <section className="container" key={`category-${index1}`}>
+      <section
+        className="container"
+        key={`category-${index1}`}
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         {/* get category name */}
         <h4 className="mb-3 font-weight-medium">{category.name}</h4>
         <div className="container-grid">
@@ -23,6 +28,8 @@ export default function Categories({ data }) {
                 <div
                   className="item column-3 row-1"
                   key={`category-${index1}-items-${index2}`}
+                  data-aos="fade-up"
+                  data-aos-delay={200 * index2}
                 >
                   <div className="card">
                     {/* kemudian cek apakah ada item isPopular dan nilainya true */}
