@@ -1,5 +1,8 @@
 {
   "hero": {
+    "icTravelers": "/images/ic_traveler.svg",
+    "icTreasures": "/images/ic_treasure.svg",
+    "icCities": "/images/ic_cities.svg",
     "travelers": 80409,
     "treasures": 882,
     "cities": 1492
