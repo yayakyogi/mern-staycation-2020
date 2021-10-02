@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./assets/scss/style.scss";
 import LandingPage from "./pages/LandingPage";
+import DetailPage from "./pages/DetailPage";
 import Example from "./pages/Example";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Router>
         <Route exact path="/" component={LandingPage}></Route>
+        <Route exact path="/properties/:id" component={DetailPage}></Route>
         <Route path="/example" component={Example}></Route>
       </Router>
     </div>
