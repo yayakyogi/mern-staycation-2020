@@ -2,9 +2,6 @@ import React from "react";
 
 import ImageHero from "../assets/images/img-hero.png";
 import ImageHero_ from "../assets/images/img-frame-home.png";
-import IconCities from "../assets/icons/ic_cities.svg";
-import IconTraveler from "../assets/icons/ic_traveler.svg";
-import IconTreasures from "../assets/icons/ic_treasure.svg";
 
 import Button from "../elements/Button";
 import formatNumber from "../utils/formatNumber";
@@ -49,7 +46,7 @@ export default function Hero(props) {
             {/* column travelers */}
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                src={IconTraveler}
+                src={props.data.icTravelers}
                 width="32"
                 height="32"
                 alt={props.data.travelers}
@@ -64,7 +61,7 @@ export default function Hero(props) {
             {/* column treasures */}
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                src={IconTreasures}
+                src={props.data.icTreasures}
                 width="32"
                 height="32"
                 alt={props.data.treasures}
@@ -79,7 +76,7 @@ export default function Hero(props) {
             {/* column cities */}
             <div className="col-auto">
               <img
-                src={IconCities}
+                src={props.data.icCities}
                 width="32"
                 height="32"
                 alt={props.data.cities}
