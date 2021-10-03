@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import "./assets/scss/style.scss";
 import LandingPage from "./pages/LandingPage";
 import DetailPage from "./pages/DetailPage";
+import Checkout from "./pages/Checkout";
 import Example from "./pages/Example";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Route exact path="/" component={LandingPage}></Route>
         <Route exact path="/properties/:id" component={DetailPage}></Route>
+        <Route path="/checkout" component={Checkout}></Route>
         <Route path="/example" component={Example}></Route>
       </Router>
     </div>
