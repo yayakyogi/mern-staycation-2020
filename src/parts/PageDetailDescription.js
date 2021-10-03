@@ -1,16 +1,12 @@
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 
 export default function PageDetailDescription({ data }) {
   return (
-    <main data-aos="fade-up" data-aos-delay="500">
+    <main>
       <h4>About the place</h4>
-      <p>{data.description}</p>
-      <div
-        className="row"
-        style={{ marginTop: 30 }}
-        data-aos="fade-up"
-        data-aos-delay="800"
-      >
+      {ReactHtmlParser(data.description)}
+      <div className="row" style={{ marginTop: 30 }}>
         {data.features.length === 0
           ? "Tidak ada feature"
           : data.features.map((feature, index) => {
