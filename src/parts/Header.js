@@ -4,9 +4,26 @@ import BrandIcon from "./IconText";
 
 export default function Header(props) {
   const getNavLinkClass = (path) => {
-    // ambil location dari props,jika isinya sama dengan path yg diminta maka tambah kelas active
-    return props.location.pathname === path ? "active" : "";
+    return props.location.pathname === path ? "active" : ""; // ambil location dari props,jika isinya sama dengan path yg diminta maka tambah kelas active
   };
+
+  if (props.isCentered) {
+    return (
+      <header
+        className="spacing-sm"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        <div className="container">
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <Button className="brand-text-icon mx-auto" href="" type="link">
+              Stay<span className="text-gray-900">cation.</span>
+            </Button>
+          </nav>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
