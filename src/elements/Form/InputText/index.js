@@ -83,7 +83,7 @@ Text.propTypes = {
   name: propTypes.string.isRequired,
   value: propTypes.oneOfType([propTypes.number, propTypes.string]).isRequired,
   onChange: propTypes.func.isRequired,
-  prepend: propTypes.oneOFType([propTypes.number, propTypes.string]),
+  prepend: propTypes.oneOfType([propTypes.number, propTypes.string]),
   append: propTypes.oneOfType([propTypes.number, propTypes.string]),
   type: propTypes.string,
   placeholder: propTypes.string,
