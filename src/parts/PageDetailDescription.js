@@ -1,11 +1,11 @@
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
+import parse from 'html-react-parser';
 
 export default function PageDetailDescription({ data }) {
   return (
     <main>
       <h4>About the place</h4>
-      {ReactHtmlParser(data.description)}
+      {parse(data.description)}
       <div className="row" style={{ marginTop: 30 }}>
         {data.features.length === 0
           ? "Tidak ada feature"
