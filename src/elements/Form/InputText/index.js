@@ -5,6 +5,7 @@ import propTypes from "prop-types";
 import "./index.scss";
 
 export default function Text(props) {
+  // destructuring props
   const {
     value,
     type,
@@ -17,11 +18,15 @@ export default function Text(props) {
     errorResponse,
   } = props;
 
+  // state error
   const [HasError, setHasError] = useState(null);
+  
+  // pattern untuk type text input email dan phone
   let pattern = "";
   if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (type === "phone") pattern = "[0-9]*";
 
+  // fungsi untuk menghandle setiap inputan dari user
   const onChange = (event) => {
     const target = {
       target: {
