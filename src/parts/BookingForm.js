@@ -4,6 +4,7 @@ import propTypes from "prop-types";
 
 import Button from "../elements/Button";
 import { InputNumber, InputDate } from "../elements/Form";
+import { Link } from "react-router-dom";
 
 export default class BookingForm extends Component {
   constructor(props) {
@@ -98,7 +99,7 @@ export default class BookingForm extends Component {
         >
           You will pay{" "}
           <span className="text-gray-900">
-            ${itemDetails.price * data.duration} USD
+            {`$${itemDetails.price * data.duration}`} USD
           </span>{" "}
           per{" "}
           <span className="text-gray-900">
