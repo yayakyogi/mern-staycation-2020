@@ -22,6 +22,7 @@ ol.strepper {
     color: $white;
   }
 
+  // semua element setelah li akan di highlight
   &:after {
     position: absolute;
     content: "";
@@ -37,6 +38,7 @@ ol.strepper {
     transition: 0.35s transform ease-in-out;
   }
 
+  // beri garis kecuali element terakhir
   &:not(:last-child) {
     margin-right: 60px;
     &:before {
@@ -51,6 +53,7 @@ ol.strepper {
     }
   }
 
+  // bila li memiliki pseudo kelas active beri background putih
   &.active {
     &:after {
       z-index: -1;
@@ -58,9 +61,11 @@ ol.strepper {
       border: 1px solid $stepperMainColor;
       transform: scale(1.2);
     }
+    // warna default li yang memiliki class active
     background-color: $stepperMainColor;
     color: $gray-500;
 
+    // hilangkan pseudo class after bila li memiliki class active
     & ~ li {
       color: $gray-500;
       background: $stepperMainColor;
