@@ -1,12 +1,12 @@
-import React from 'react'
-import {InputText,InputFile} from 'elements/Form';
+import React from "react";
+import { InputText, InputFile } from "elements/Form";
 
 import logoBCA from "assets/images/logo_bank_bca.png";
 import logoMandiri from "assets/images/logo_bank_mandiri.png";
 
 export default function Payment(props) {
   // destructuring props
-  const {data, itemDetails,checkout} = props;
+  const { data, itemDetails, checkout } = props;
 
   // cost
   const tax = 10; // diskon
@@ -15,16 +15,16 @@ export default function Payment(props) {
 
   return (
     <div className="container">
-      <div className="row justify-content-center align-items-center">
-        <div className="col-5 border-right py-5" style={{ paddingRight:80 }}>
-          <div data-aos="fade-up" data-aos-delay="300">  
+      <div className="row justify-content-center align-items-start">
+        <div className="col-5 border-right py-3" style={{ paddingRight: 80 }}>
+          <div data-aos="fade-up" data-aos-delay="300">
             <p className="mb-4">Transfer Pembayaran</p>
             <p>Tax: {tax}%</p>
             <p>Sub total: {subTotal} USD</p>
             <p>Total: {grandTotal} USD</p>
             <div className="row mt-4">
               <div className="col-3 text-right">
-                <img src={logoBCA} alt="logo_back_bca" width="60"/>
+                <img src={logoBCA} alt="logo_back_bca" width="60" />
               </div>
               <div className="col">
                 <dl>
@@ -36,7 +36,7 @@ export default function Payment(props) {
             </div>
             <div className="row mt-4">
               <div className="col-3 text-right">
-                <img src={logoMandiri} alt="logo_back_bca" width="60"/>
+                <img src={logoMandiri} alt="logo_back_bca" width="60" />
               </div>
               <div className="col">
                 <dl>
@@ -48,7 +48,7 @@ export default function Payment(props) {
             </div>
           </div>
         </div>
-        <div className="col-5 py-5" stle={{ paddingLeft:80 }}>
+        <div className="col-5 py-3" stle={{ paddingLeft: 80 }}>
           <div data-aos="fade-up" data-aos-delay="600">
             <label htmlFor="proofPayment">Upload Bukti Transfer</label>
             <InputFile
@@ -80,5 +80,5 @@ export default function Payment(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

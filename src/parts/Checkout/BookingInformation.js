@@ -2,9 +2,8 @@ import React from "react";
 
 import { InputText } from "../../elements/Form";
 
-export default function BooingInformation(props) {
+export default function BookingInformation(props) {
   const { data, itemDetails, checkout } = props;
-
   return (
     <div className="container">
       <div className="row justify-content-center align-items-center">
@@ -25,7 +24,7 @@ export default function BooingInformation(props) {
             <div className="row align-items-center">
               <div className="col">
                 <div className="meta-wrapper">
-                  <h5>{itemDetails.title}</h5>
+                  <h5>{itemDetails.name}</h5>
                   <span className="text-gray-500">
                     {itemDetails.city}, {itemDetails.country}
                   </span>
@@ -33,9 +32,9 @@ export default function BooingInformation(props) {
               </div>
               <div className="col-auto">
                 <span>
-                  ${+checkout.duration * itemDetails.price} USD
-                  <span className="text-gray-500"> per </span>
-                  {checkout.duration} {itemDetails.unit}{" "}
+                  {"$" + checkout.duration * itemDetails.price} USD
+                  <span className="text-gray-400"> per </span>
+                  {checkout.duration} {itemDetails.unit}
                   {+checkout.duration > 1 ? "s" : ""}
                 </span>
               </div>
@@ -69,7 +68,7 @@ export default function BooingInformation(props) {
             id="email"
             name="email"
             type="email"
-            value={data.lastName}
+            value={data.email}
             onChange={props.onChange}
           />
 

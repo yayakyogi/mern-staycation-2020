@@ -20,7 +20,7 @@ export default function Text(props) {
 
   // state error
   const [HasError, setHasError] = useState(null);
-  
+
   // pattern untuk type text input email dan phone
   let pattern = "";
   if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,7 +50,7 @@ export default function Text(props) {
   };
 
   return (
-    <div className={["input-test mb-3", outerClassName].join(" ")}>
+    <div className={["input-text mb-3", outerClassName].join(" ")}>
       <div className="input-group">
         {prepend && (
           <div className="input-group-prepend bg-gray-900">
@@ -72,7 +72,7 @@ export default function Text(props) {
           </div>
         )}
       </div>
-      {HasError && <span className="error-helper">{HasError}</span>}
+      {HasError && <span className="text-danger">{HasError}</span>}
     </div>
   );
 }

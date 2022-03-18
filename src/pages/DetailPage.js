@@ -39,7 +39,7 @@ export default class DetailsPage extends Component {
               <PageDetailDescription data={itemDetails}></PageDetailDescription>
             </div>
             <div className="col-5">
-              <BookingForm itemDetails={itemDetails}></BookingForm>
+              <BookingForm itemDetails={itemDetails} startBooking={"href=`/checkout`"}></BookingForm>
               {console.log("itemDetail from pagedetails: ", itemDetails)}
             </div>
           </div>

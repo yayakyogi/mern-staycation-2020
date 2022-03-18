@@ -19,8 +19,8 @@ export default function File(props) {
     setFileName(event.target.value);
     props.onChange({
       target: {
-        name: event.target.value,
-        value: event.target.value,
+        name: event.target.name,
+        value: event.target.files,
       },
     });
   };

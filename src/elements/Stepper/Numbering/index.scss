@@ -3,7 +3,7 @@
 $stepperMainColor: $gray-200;
 $size: 50px;
 
-ol.strepper {
+ol.stepper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@ ol.strepper {
     height: $size;
     border-radius: $size;
     color: $white;
-  }
+  
 
   // semua element setelah li akan di highlight
   &:after {
@@ -74,4 +74,4 @@ ol.strepper {
       }
     }
   }
-}
+}}
