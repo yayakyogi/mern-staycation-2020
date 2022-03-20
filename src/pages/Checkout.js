@@ -14,17 +14,15 @@ import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails";
-import { fetchPage } from "../store/actions/page";
+// import { fetchPage } from "../store/actions/page";
 
 class Checkout extends Component {
   state = {
     data: {
-      // state untuk booking information
       firstName: "",
       lastName: "",
       email: "",
       phone: "",
-      // state untuk payment
       proofPayment: "",
       bankName: "",
       bankHolder: "",
@@ -42,17 +40,18 @@ class Checkout extends Component {
 
   componentDidMount() {
     window.scroll(0, 0);
-    if (!this.props.page.detailPage) {
-      this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.checkout._id}`,
-        "detailPage"
-      );
-    }
   }
+
+  _onSubmit = () => {
+    const { data } = this.data;
+    const { checkout, page } = this.props;
+  };
 
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
+
+    // console.log(page[checkout._id]);
 
     if (!checkout) {
       return (
@@ -88,7 +87,7 @@ class Checkout extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            itemDetails={page.detailPage}
+            itemDetails={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -100,7 +99,7 @@ class Checkout extends Component {
           <Payment
             data={data}
             checkout={checkout}
-            itemDetails={page.detailPage}
+            itemDetails={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -223,4 +222,4 @@ const mapStateToProps = (state) => ({
   page: state.page,
 });
 
-export default connect(mapStateToProps, { fetchPage })(Checkout);
+export default connect(mapStateToProps)(Checkout);

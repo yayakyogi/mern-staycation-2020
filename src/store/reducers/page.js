@@ -1,4 +1,4 @@
-import { FETCH_PAGE } from "../types";
+import { FETCH_ERROR_PAGE, FETCH_PAGE } from "../types";
 
 const initialState = {};
 
@@ -8,6 +8,11 @@ const page = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+      };
+
+    case FETCH_ERROR_PAGE:
+      return {
+        error: action.error,
       };
 
     default:

@@ -20,7 +20,7 @@ export default function FeatureImage({ data }) {
                 <figure className="img-wrapper">
                   <img
                     className="img-cover"
-                    src={item.imageUrl}
+                    src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`}
                     alt={item._id}
                   />
                 </figure>

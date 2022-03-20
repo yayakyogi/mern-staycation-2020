@@ -18,23 +18,27 @@ class DetailsPage extends Component {
     window.title = "Details Page";
     window.scrollTo(0, 0);
 
-    if (!this.props.page.detailPage) {
+    if (!this.props.page[this.props.match.params.id]) {
       this.props.fetchPage(
         `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.match.params.id}`,
-        "detailPage"
+        this.props.match.params.id
       );
     }
   }
   render() {
-    const { page } = this.props;
-    if (!page.hasOwnProperty("detailPage"))
+    const { page, match } = this.props;
+    // console.log(page.landingPage);
+    if (!page[match.params.id])
       return (
         <div
           style={{ height: "100vh" }}
           className="row justify-content-center align-items-center"
         >
           <div className="text-center">
-            <div class="spinner-border text-primary mb-3" role="status"></div>
+            <div
+              className="spinner-border text-primary mb-3"
+              role="status"
+            ></div>
             <h5>Sedang memuat data...</h5>
           </div>
         </div>
@@ -49,9 +53,9 @@ class DetailsPage extends Component {
         <Header {...this.props}></Header>
         <PageDetailTitle
           breadcrumb={breadcrumb}
-          data={page.detailPage}
+          data={page[match.params.id]}
         ></PageDetailTitle>
-        <FeatureImage data={page.detailPage.imageId}></FeatureImage>
+        <FeatureImage data={page[match.params.id].imageId}></FeatureImage>
         <section
           className="container"
           data-aos="fade-up"
@@ -60,19 +64,19 @@ class DetailsPage extends Component {
           <div className="row">
             <div className="col-7 pr-5">
               <PageDetailDescription
-                data={page.detailPage}
+                data={page[match.params.id]}
               ></PageDetailDescription>
             </div>
             <div className="col-5">
               <BookingForm
-                itemDetails={page.detailPage}
+                itemDetails={page[match.params.id]}
                 startBooking={this.props.checkoutBooking}
               ></BookingForm>
             </div>
           </div>
         </section>
-        <Activities data={page.detailPage} />
-        <Testimoni data={page.detailPage.testimonial} />
+        <Activities data={page[match.params.id]} />
+        <Testimoni data={page[match.params.id].testimonial} />
         <Footer />
       </>
     );

@@ -35,7 +35,10 @@ class LandingPage extends Component {
           className="row justify-content-center align-items-center"
         >
           <div className="text-center">
-            <div class="spinner-border text-primary mb-3" role="status"></div>
+            <div
+              className="spinner-border text-primary mb-3"
+              role="status"
+            ></div>
             <h5>Sedang memuat data...</h5>
           </div>
         </div>
@@ -43,6 +46,11 @@ class LandingPage extends Component {
     return (
       <>
         <Header {...this.props}></Header>
+        {page.error && (
+          <div className="container alert alert-danger" role="alert">
+            {page.error.message}
+          </div>
+        )}
         <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
         <MostPicked
           refMostPicked={this.refMostPicked}
