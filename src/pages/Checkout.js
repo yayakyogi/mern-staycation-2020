@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Header from "parts/Header";
 import Button from "elements/Button";
@@ -13,7 +14,9 @@ import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails";
-export default class Checkout extends Component {
+import { fetchPage } from "../store/actions/page";
+
+class Checkout extends Component {
   state = {
     data: {
       // state untuk booking information
@@ -39,14 +42,43 @@ export default class Checkout extends Component {
 
   componentDidMount() {
     window.scroll(0, 0);
+    if (!this.props.page.detailPage) {
+      this.props.fetchPage(
+        `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.checkout._id}`,
+        "detailPage"
+      );
+    }
   }
 
   render() {
     const { data } = this.state;
+    const { checkout, page } = this.props;
 
-    const checkout = {
-      duration: 3,
-    };
+    if (!checkout) {
+      return (
+        <div
+          className="row justify-content-center align-items-center text-center"
+          style={{ height: "100vh" }}
+        >
+          <div className="col-2">
+            <p style={{ fontSize: 20, marginBottom: 30 }}>Pilih kamar dulu</p>
+            <Button
+              className="btn"
+              type="link"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              isLight
+              href="/"
+            >
+              Back
+            </Button>
+          </div>
+        </div>
+      );
+    }
 
     const steps = {
       bookingInformation: {
@@ -56,7 +88,7 @@ export default class Checkout extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            itemDetails={ItemDetails}
+            itemDetails={page.detailPage}
             onChange={this.onChange}
           />
         ),
@@ -68,7 +100,7 @@ export default class Checkout extends Component {
           <Payment
             data={data}
             checkout={checkout}
-            itemDetails={ItemDetails}
+            itemDetails={page.detailPage}
             onChange={this.onChange}
           />
         ),
@@ -185,3 +217,10 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+  page: state.page,
+});
+
+export default connect(mapStateToProps, { fetchPage })(Checkout);

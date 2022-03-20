@@ -46,7 +46,7 @@ export default function Hero(props) {
             {/* column travelers */}
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                src={props.data.icTravelers}
+                src="/images/ic_traveler.svg"
                 width="32"
                 height="32"
                 alt={props.data.travelers}
@@ -61,7 +61,7 @@ export default function Hero(props) {
             {/* column treasures */}
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                src={props.data.icTreasures}
+                src="/images/ic_treasure.svg"
                 width="32"
                 height="32"
                 alt={props.data.treasures}
@@ -76,7 +76,7 @@ export default function Hero(props) {
             {/* column cities */}
             <div className="col-auto">
               <img
-                src={props.data.icCities}
+                src="/images/ic_cities.svg"
                 width="32"
                 height="32"
                 alt={props.data.cities}

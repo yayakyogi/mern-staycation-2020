@@ -22,13 +22,33 @@ export default function Payment(props) {
             <p>Tax: {tax}%</p>
             <p>Sub total: {subTotal} USD</p>
             <p>Total: {grandTotal} USD</p>
-            <div className="row mt-4">
+            {itemDetails.bank.map((bank, index) => {
+              return (
+                <div key={index} className="row mt-4">
+                  <div className="col-3 text-right">
+                    <img
+                      src={`${process.env.REACT_APP_HOST}/${bank.imageUrl}`}
+                      alt="logo_back_bca"
+                      width="60"
+                    />
+                  </div>
+                  <div className="col">
+                    <dl>
+                      <dd>{bank.nameBank}</dd>
+                      <dd>{bank.nomorRekening}</dd>
+                      <dd>{bank.name}</dd>
+                    </dl>
+                  </div>
+                </div>
+              );
+            })}
+            {/* <div className="row mt-4">
               <div className="col-3 text-right">
                 <img src={logoBCA} alt="logo_back_bca" width="60" />
               </div>
               <div className="col">
                 <dl>
-                  <dd>Bank Central Asia</dd>
+                  <dd></dd>
                   <dd>2222 - 0000</dd>
                   <dd>Yayak Yogi Ginantaka</dd>
                 </dl>
@@ -45,7 +65,7 @@ export default function Payment(props) {
                   <dd>Yayak Yogi Ginantaka</dd>
                 </dl>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="col-5 py-3" stle={{ paddingLeft: 80 }}>

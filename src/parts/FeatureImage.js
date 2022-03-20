@@ -18,7 +18,11 @@ export default function FeatureImage({ data }) {
                 data-aos-delay={300 * index}
               >
                 <figure className="img-wrapper">
-                  <img className="img-cover" src={item.url} alt={item._id} />
+                  <img
+                    className="img-cover"
+                    src={item.imageUrl}
+                    alt={item._id}
+                  />
                 </figure>
               </div>
             </div>
