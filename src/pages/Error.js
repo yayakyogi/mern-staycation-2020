@@ -1,12 +1,9 @@
 import Button from "elements/Button";
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 
 function ErrorPage(props) {
   const { page } = props;
-  console.log("Error page", page);
-  // return <Redirect from="/error" to="/" />;
   return (
     <div
       className="row justify-content-center align-items-center"

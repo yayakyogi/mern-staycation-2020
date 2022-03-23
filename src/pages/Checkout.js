@@ -14,7 +14,7 @@ import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails";
-// import { fetchPage } from "../store/actions/page";
+import axios from "configs/axios";
 
 class Checkout extends Component {
   state = {
@@ -27,6 +27,7 @@ class Checkout extends Component {
       bankName: "",
       bankHolder: "",
     },
+    isSubmitBooking: false,
   };
 
   onChange = (event) => {
@@ -42,16 +43,55 @@ class Checkout extends Component {
     window.scroll(0, 0);
   }
 
-  _onSubmit = () => {
-    const { data } = this.data;
-    const { checkout, page } = this.props;
+  convertDateToString = (date) => {
+    const dates = new Date(date);
+    const getDate = ("0" + dates.getDate()).slice(-2);
+    const getMonth = ("0" + (dates.getMonth() + 1)).slice(-2);
+    const getYear = dates.getFullYear();
+    const value = `${getYear}-${getMonth}-${getDate}`;
+    return value;
+  };
+
+  _onSubmit = (nextStep) => {
+    const { data } = this.state;
+    const { checkout } = this.props;
+
+    this.setState({ isSubmitBooking: true });
+
+    const payload = new FormData();
+    payload.append("firstName", data.firstName);
+    payload.append("lastName", data.lastName);
+    payload.append("email", data.email);
+    payload.append("phoneNumber", data.phone);
+    payload.append("itemId", checkout._id);
+    payload.append("duration", checkout.duration);
+    payload.append(
+      "bookingDateStart",
+      this.convertDateToString(checkout.date.startDate)
+    );
+    payload.append(
+      "bookingDateEnd",
+      this.convertDateToString(checkout.date.endDate)
+    );
+    payload.append("accountHolder", data.bankHolder);
+    payload.append("bankFrom", data.bankName);
+    payload.append("image", data.proofPayment[0]);
+
+    if (payload) {
+      axios
+        .post("/booking-page", payload, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then(() => {
+          this.setState({ isSubmitBooking: false });
+          nextStep();
+        });
+    }
   };
 
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
-
-    // console.log(page[checkout._id]);
 
     if (!checkout) {
       return (
@@ -162,32 +202,45 @@ class Checkout extends Component {
                 <Controller>
                   {data.proofPayment !== "" &&
                     data.bankName !== "" &&
-                    data.bankHolder !== "" && (
+                    data.bankHolder !== "" &&
+                    this.state.isSubmitBooking === false && (
                       <Button
                         className="btn mb-3"
                         type="button"
                         isBlock
                         isPrimary
                         hasShadow
-                        onClick={nextStep}
+                        onClick={() => this._onSubmit(nextStep)}
                       >
                         Continue to Book
                       </Button>
                     )}
-                  <Button
-                    className="btn"
-                    type="button"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                    isBlock
-                    isLight
-                    onClick={prevStep}
-                  >
-                    Cancel
-                  </Button>
+                  {this.state.isSubmitBooking && (
+                    <Button
+                      className="btn mb-3"
+                      type="button"
+                      isBlock
+                      isLoading
+                      isPrimary
+                      isDisabled
+                    />
+                  )}
+                  {!this.state.isSubmitBooking && (
+                    <Button
+                      className="btn"
+                      type="button"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      isBlock
+                      isLight
+                      onClick={prevStep}
+                    >
+                      Cancel
+                    </Button>
+                  )}
                 </Controller>
               )}
               {CurrentStep === "completed" && (

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./assets/scss/style.scss";
@@ -24,6 +25,17 @@ function App() {
         <Route path="/error" component={ErrorPage}></Route>
         <Redirect from="*" to="/" />
       </Router>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

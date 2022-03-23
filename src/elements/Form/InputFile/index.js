@@ -15,6 +15,8 @@ export default function File(props) {
   } = props;
 
   const refInputFile = useRef(null);
+
+  // fungsi untuk menampilkan nama file dan menset value dari proofPayment yaitu isi dari file image yg diupload
   const onChange = (event) => {
     setFileName(event.target.value);
     props.onChange({

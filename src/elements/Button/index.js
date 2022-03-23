@@ -31,10 +31,14 @@ export default function Button(props) {
       >
         {props.isLoading ? (
           // lalu cek apakah propsnya isLoading ? jika ya tampilkan animasi loading
-          <>
-            <span className="spinner-border spinner-border-sm mx-5"></span>
-            <span className="sr-only">Loading...</span>
-          </>
+          <div className="row align-items-center justify-content-center pt-1">
+            <span
+              className="spinner-border spinner-border-sm mr-2"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </div>
         ) : (
           // Jika propsnya bukan isLoading maka tampilkan props children
           props.children
@@ -48,6 +52,7 @@ export default function Button(props) {
     // Kemudian ada pengeceka lagi apakah linknya ekternal atau bukan
     if (props.isExternal) {
       return (
+        // eslint-disable-next-line react/jsx-no-target-blank
         <a
           href={props.href} // href ambil dari props href
           className={className.join(" ")} // setiap menerima value array gabungkan value tsb dengan pemisah spasi

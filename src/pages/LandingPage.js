@@ -20,10 +20,7 @@ class LandingPage extends Component {
     window.scrollTo(0, 0);
 
     if (!this.props.page.landingPage)
-      this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
-        "landingPage"
-      );
+      this.props.fetchPage("/landing-page", "landingPage");
   }
   render() {
     const { page } = this.props;
@@ -46,11 +43,6 @@ class LandingPage extends Component {
     return (
       <>
         <Header {...this.props}></Header>
-        {page.error && (
-          <div className="container alert alert-danger" role="alert">
-            {page.error.message}
-          </div>
-        )}
         <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
         <MostPicked
           refMostPicked={this.refMostPicked}

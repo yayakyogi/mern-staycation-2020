@@ -20,14 +20,13 @@ class DetailsPage extends Component {
 
     if (!this.props.page[this.props.match.params.id]) {
       this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.match.params.id}`,
+        `detail-page/${this.props.match.params.id}`,
         this.props.match.params.id
       );
     }
   }
   render() {
     const { page, match } = this.props;
-    // console.log(page.landingPage);
     if (!page[match.params.id])
       return (
         <div
