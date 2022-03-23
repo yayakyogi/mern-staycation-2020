@@ -11,7 +11,7 @@ export default function MostPicked(props) {
       data-aos-duration="1000"
     >
       <h4 className="mb-3">Most Picked</h4>
-      <div className="container-grid">
+      <div className="container-grid sm">
         {props.data.map((item, index) => {
           return (
             <div

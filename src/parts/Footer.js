@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </div>
           {/* col 2 */}
-          <div className="col-2 mr-5">
+          <div className="col-sm-2 col-12 mr-5 mb-3">
             <h6 className="mt-2">For Beginners</h6>
             <ul className="list-group list-group flust">
               <li className="list-group-item">
@@ -37,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* col 3 */}
-          <div className="col-2 mr-5">
+          <div className="col-sm-2 col-12 mr-5 mb-3">
             <h6 className="mt-2">Explore Us</h6>
             <ul className="list-group list-group flust">
               <li className="list-group-item">
@@ -58,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
           {/* col 4 */}
-          <div className="col-2 mr-5">
+          <div className="col-sm-2 col-12 mr-5 mb-3">
             <h6 className="mt-2">Connect Us</h6>
             <ul className="list-group list-group flust">
               <li className="list-group-item">

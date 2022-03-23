@@ -22,13 +22,16 @@ export default function Hero(props) {
     >
       <div className="row align-items-center">
         {/* colum left */}
-        <div className="col-auto pr-3" style={{ width: 530, height: 500 }}>
+        <div
+          className="col-12 col-lg-6 pr-3"
+          style={{ width: 530, height: 500 }}
+        >
           <h1 className="font-weight-bold line-height-1 mb-3">
             Forget Busy Work <br />
             Start Next Vaction
           </h1>
           <p
-            className="mb-4 font-weight-light text-gray-500 w-75"
+            className="mb-4 font-weight-light text-gray-500 w-md-75"
             style={{ lineHeight: "170%" }}
           >
             We provide what you need to enjoy your holiday with family. Time to
@@ -89,8 +92,12 @@ export default function Hero(props) {
           </div>
         </div>
 
+        <div
+          style={{ height: 100, width: "100%" }}
+          className="d-block d-sm-none"
+        ></div>
         {/* column right */}
-        <div className="col-6 pl-5">
+        <div className="d-none d-lg-block col-6 pl-5">
           <div style={{ width: 520, height: 450 }}>
             <img
               src={ImageHero}

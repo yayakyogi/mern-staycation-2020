@@ -8,7 +8,7 @@ export default function Testimoni({ data }) {
   return (
     <section className="container" data-aos="fade-up" data-aos-duration="500">
       <div className="row align-items-center">
-        <div className="col-auto" style={{ marginRight: 60 }}>
+        <div className="col-12 col-sm-6" style={{ marginRight: 60 }}>
           <div className="testimonial-hero" style={{ margin: `30px 0 0 30px` }}>
             <img
               src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
@@ -24,7 +24,7 @@ export default function Testimoni({ data }) {
             />
           </div>
         </div>
-        <div className="col">
+        <div className="col-12 col-sm-6">
           <h4 style={{ marginBottom: 40 }}>{data.name}</h4>
           <Star value={data.rate} width={35} height={35} spacing={4}></Star>
           <h5 className="h2 font-weight-light line-height-2 my-3">
