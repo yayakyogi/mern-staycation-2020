@@ -10,7 +10,7 @@ import Stepper, {
   Controller,
 } from "elements/Stepper";
 import BookingInformation from "parts/Checkout/BookingInformation";
-import Payment from "parts/Checkout/Payments";
+import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails";
