@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../elements/Button";
 import BrandIcon from "./IconText";
 
 export default function Header(props) {
+  const [showMenu, setShowMenu] = useState(false);
+
   const getNavLinkClass = (path) => {
     return props.location.pathname === path ? "active" : ""; // ambil location dari props,jika isinya sama dengan path yg diminta maka tambah kelas active
   };
@@ -25,6 +27,10 @@ export default function Header(props) {
     );
   }
 
+  const showNavbar = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <header
       className="spacing-sm"
@@ -32,7 +38,79 @@ export default function Header(props) {
       data-aos-duration="1000"
     >
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <div className="navbar">
+          <BrandIcon />
+          <button className="button-toggle" onClick={showNavbar}>
+            {showMenu ? (
+              <img src="/images/close.png" alt="close" width="20" />
+            ) : (
+              <img src="/images/menu.png" alt="menu" width="30" />
+            )}
+          </button>
+          {/* Menu navbar desktop */}
+          <div className="list-menu-dekstop">
+            <Button
+              className={`nav-link ${getNavLinkClass("/")}`}
+              type="link"
+              href="/"
+            >
+              Home
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/browse-by")}`}
+              type="link"
+              href="/browse-by"
+            >
+              Browse By
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/stories")}`}
+              type="link"
+              href="/stories"
+            >
+              Stories
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/agents")}`}
+              type="link"
+              href="/agents"
+            >
+              Agents
+            </Button>
+          </div>
+          {/* Menu navbar mobile */}
+          <div className={`list-menu-phone ${showMenu ? "d-flex" : "d-none"}`}>
+            <Button
+              className={`nav-link ${getNavLinkClass("/")}`}
+              type="link"
+              href="/"
+            >
+              Home
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/browse-by")}`}
+              type="link"
+              href="/browse-by"
+            >
+              Browse By
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/stories")}`}
+              type="link"
+              href="/stories"
+            >
+              Stories
+            </Button>
+            <Button
+              className={`nav-link ${getNavLinkClass("/agents")}`}
+              type="link"
+              href="/agents"
+            >
+              Agents
+            </Button>
+          </div>
+        </div>
+        {/* <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />
           <button
             className="navbar-toggler"
@@ -42,6 +120,7 @@ export default function Header(props) {
             aria-controls="navbarNavDropdown"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={showNavbar}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -69,7 +148,7 @@ export default function Header(props) {
               </li>
             </ul>
           </div>
-        </nav>
+        </nav> */}
       </div>
     </header>
   );

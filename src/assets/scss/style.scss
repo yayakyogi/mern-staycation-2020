@@ -69,35 +69,55 @@ header {
   position: relative;
   margin-bottom: 40px;
 
+  .container{
+    @media screen and (max-width: $small) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   // styling navbar
   .navbar {
     height: 80px;
+    display: flex;
+    position: relative;
+    @media screen and (min-width: $medium) {
+      padding-top: 10px;
+    }
 
-    //  styling navbar nav yg punya child
-    .navbar-nav {
-      // child dari navbar nav yg di dalamnya punya anchor tag
-      li.nav-item {
-        // dan jika ada class active maka beri warna fontsnya primary
-        &.active {
-          a.nav-link {
-            color: $primary;
-          }
-        }
-        a {
-          // dan jika anchor tag punya child beri styling
-          &.nav-link {
-            letter-spacing: 1px;
-            font-size: 16px;
-            color: $gray-900;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            // jika anchor tagnya di hover akan punya text-decoration:underline
-            &:hover {
-              text-decoration: underline;
-            }
-          }
+    .button-toggle{
+      display: block;
+      z-index: 11;
+      background-color: transparent;
+      border: none;
+      @media screen and (min-width: $medium) {
+        display: none; 
+      }
+    }
+
+    .list-menu-dekstop{  
+      display: none;
+      @media screen and (min-width: $medium) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    
+    .list-menu-phone{
+      width: 100%;
+      position: absolute;
+      background-color: $white;
+      box-shadow: 3px 3px 3px rgba($black, 0.1);
+      top:0;
+      left: 0;
+      padding: 20px 10px;
+      z-index: 10;
+      flex-direction: column;
+      .nav-link{
+        &:hover{
+          color:$dark;
+          text-decoration: underline;
         }
       }
     }
