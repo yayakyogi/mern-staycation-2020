@@ -45,10 +45,9 @@
 @import "utilities";
 @import "print";
 
-*{
-  margin: 0;
-  padding: 0;
-}
+$small: 390px;
+$medium: 720px;
+$large: 960px;
 
 // styling brand text icon
 .brand-text-icon {
@@ -104,22 +103,57 @@ header {
     }
   }
 }
+
+section {
+  margin-bottom: 70px;
+}
+
 .img-cover {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
+
 .img-contain {
   object-fit: contain;
   height: 100%;
   width: 100%;
 }
-section {
-  margin-bottom: 70px;
+
+.page-title{
+  margin-top: 10px;
+  margin-bottom: -30px;
 }
+
+.booking-information{
+  padding: 10px 15px;
+  @media screen and (min-width: $medium) {
+    padding: 10px 80px 10px 0;
+  }
+}
+
+.booking-form{
+  margin-top: 30px;
+  @media screen and (min-width: $medium) {
+    margin-top: 0;
+    padding: 10px 0 10px 80px;
+  }
+}
+
 .card {
+  margin-top: 20px;
+  &.card-booking{
+    padding: 10px;
+    @media screen and (min-width:480px) {
+      padding: 50px 60px;
+      margin-top: 0;
+    }
+  }
   &.bordered {
-    border: 1px solid $gray-200;
+    border: none;
+    @media screen and (min-width:480px) {
+      border: 1px solid $gray-200;
+    }
   }
 
   .tag {

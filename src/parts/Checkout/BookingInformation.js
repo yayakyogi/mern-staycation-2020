@@ -8,8 +8,7 @@ export default function BookingInformation(props) {
     <div className="container">
       <div className="row justify-content-center align-items-center">
         <div
-          className="col-5 border-right py-5"
-          style={{ paddingRight: 80 }}
+          className="col-12 col-md-5 border-right booking-information"
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -42,8 +41,7 @@ export default function BookingInformation(props) {
           </div>
         </div>
         <div
-          className="col-5 py-5"
-          style={{ paddingLeft: 80 }}
+          className="col-12 col-md-5 booking-form"
           data-aos="fade-up"
           data-aos-delay="600"
         >

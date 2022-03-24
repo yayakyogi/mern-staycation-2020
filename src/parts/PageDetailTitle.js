@@ -10,10 +10,10 @@ export default function PageDetailTitle({ data, breadcrumb }) {
       data-aos-duration="1000"
     >
       <div className="row align-items-center">
-        <div className="col">
+        <div className="col-12 col-md-5">
           <Breadcrumb data={breadcrumb} />
         </div>
-        <div className="col-auto text-center">
+        <div className="col-12 col-md-auto text-center page-title">
           <h1 className="h2">{data.title}</h1>
           <span className="text-gray-400">
             {data.city}, {data.country}

@@ -12,7 +12,7 @@ export default function Payment(props) {
   return (
     <div className="container">
       <div className="row justify-content-center align-items-start">
-        <div className="col-5 border-right py-3" style={{ paddingRight: 80 }}>
+        <div className="col-12 col-md-5 border-right booking-information">
           <div data-aos="fade-up" data-aos-delay="300">
             <p className="mb-4">Transfer Pembayaran</p>
             <p>Tax: {tax}%</p>
@@ -40,7 +40,7 @@ export default function Payment(props) {
             })}
           </div>
         </div>
-        <div className="col-5 py-3" stle={{ paddingLeft: 80 }}>
+        <div className="col-12 col-md-5 booking-form">
           <div data-aos="fade-up" data-aos-delay="600">
             <label htmlFor="proofPayment">Upload Bukti Transfer</label>
             <InputFile

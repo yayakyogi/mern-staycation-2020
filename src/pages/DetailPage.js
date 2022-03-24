@@ -61,12 +61,12 @@ class DetailsPage extends Component {
           data-aos-duration="1000"
         >
           <div className="row">
-            <div className="col-7 pr-5">
+            <div className="col-12 col-md-7 pr-5">
               <PageDetailDescription
                 data={page[match.params.id]}
               ></PageDetailDescription>
             </div>
-            <div className="col-5">
+            <div className="col-12 col-md-5">
               <BookingForm
                 itemDetails={page[match.params.id]}
                 startBooking={this.props.checkoutBooking}

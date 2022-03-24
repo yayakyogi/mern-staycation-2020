@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FeatureImage({ data }) {
   return (
-    <section className="container" style={{ marginTop: -10 }}>
+    <section className="container">
       <div className="container-grid sm">
         {data.map((item, index) => {
           return (
